@@ -1,0 +1,28 @@
+.contenedor-navbar {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    align-items: flex-end;
+    
+    
+}
+
+li {
+    list-style: none;
+    margin-right: 10px; 
+   
+}
+
+.contenedor-ul {    
+    padding-left: 0px;
+    display: flex;
+    justify-content: left;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    margin-bottom: 0%;
+    
+   
+}
+
+
+    
