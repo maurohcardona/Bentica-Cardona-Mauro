@@ -12,7 +12,7 @@ function Header () {
                 <img className="logo-bentica" src={logo} alt="Logo de Bentica" />
                 <div className="div-input">
                     <Input 
-                        estilo= 'input-bentica'
+                        estilo= 'input-header'
                         placeholder= '¿Que estas buscando?' />
                 </div>
                 <CartWidget />

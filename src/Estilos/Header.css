@@ -5,12 +5,14 @@
 .logo-input {
     display: flex;
     justify-content: space-between;
+    
 }
 
 .div-input  {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    
 }
 
 .icono-carrito {
