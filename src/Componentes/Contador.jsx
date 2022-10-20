@@ -1,4 +1,5 @@
 import {useState} from "react";
+import '../Estilos/Contador.css'
 
 function Contador ({stock}) {
     const [cantidad, setcantidad] = useState (0);
