@@ -16,6 +16,17 @@ function Contador ({stock}) {
         }
     }
     
+    const AgregarAlCarrito = () => {
+        if (cantidad === 0) {
+            alert ('No seleccionaste ningun producto')
+        }
+        else if (cantidad === 1) {
+            alert('Agregaste el producto al carrito')
+        }
+        else {
+            alert('Agregaste los productos al carrito')
+        }
+    }
     
     return (
         <div className="contenedor-contador">
@@ -24,7 +35,7 @@ function Contador ({stock}) {
                 <span>{cantidad}</span>
                 <button onClick={agregar} disabled={cantidad === stock}>+</button>
             </div>
-            <button>Agregar al carrito</button>
+            <button onClick={AgregarAlCarrito}>Agregar al carrito</button>
         </div>
     )
 }

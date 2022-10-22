@@ -1,9 +1,18 @@
 .contenedor-contador {
-    border: 1px solid;
-    width: 150px;
-    height: 100px;
+    
+    width: 120px;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.contenedor-botones {
+    width: 118px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    background-color: gainsboro;
 }
