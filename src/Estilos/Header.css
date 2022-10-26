@@ -1,6 +1,6 @@
 .logo-bentica {
-    height: 100px;
-    width: 120px;
+    height: 150px;
+    width: 170px;
 }
 .logo-input {
     display: flex;
@@ -19,4 +19,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.contenedor-header {
+    padding: 10px;
 }

@@ -1,9 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
+import { productos } from '../Mock/productos'
+import ItemList from './ItemList';
+import logo from '../Imagenes/Frente-bentica.png'
 
-function Main ({saludo}) {
+function ItemListContainer () {
+    const [items, setItems] = useState([]);
+
+    useEffect(() => {
+        const getProducts = () => {
+            return new Promise((res, rej) => {
+                setTimeout(() => {
+                    res(productos);
+                }, 3000);
+                
+            });
+        };
+        getProducts()
+        .then((res) => {
+            setItems(res);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+    }, []); 
+    
+    
     return (
-        <h1>{saludo}</h1>
+        <div>
+            <img src={logo} alt="Imagen de Bentica"/>
+            <ItemList items={items} />
+       </div>
     )
 }
 
-export default Main
+export default ItemListContainer;
