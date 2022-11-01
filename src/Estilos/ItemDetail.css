@@ -1,0 +1,23 @@
+.detail {
+    display: flex;
+    justify-content: space-between;
+    
+    
+  
+    
+}
+
+.aricledetail {
+    max-width: 400px;
+    padding-left: 50px;
+    margin-right: 50px;
+    border: 1px solid cornflowerblue;
+    
+    
+}
+
+.imagendetail {
+    margin-left: 300px;
+    
+    
+}
