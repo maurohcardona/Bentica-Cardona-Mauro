@@ -16,7 +16,7 @@ export const productos = [
     {
         nombre: 'Cabellos y barba-barra sólida de limpieza',
         precio: 800,
-        categoria: 'Shampoo sólidos',
+        categoria: '2x1',
         imagen: 'https://res.cloudinary.com/dm3zt39cx/image/upload/v1666492983/Cabellos_y_barba_xxse1e.jpg',
         id: 3,
     },
@@ -30,28 +30,28 @@ export const productos = [
     {
         nombre: 'Shampoo sólido Té Verde',
         precio: 800,
-        categoria: 'Para cabellos grasos',
+        categoria: 'Shampoo sólidos',
         imagen: 'https://res.cloudinary.com/dm3zt39cx/image/upload/v1666492990/shampoo_solido_te_verde_iohy4b.jpg',
         id: 5
     },
     {
         nombre: 'Shampoo sólido Rosa Mosqueta',
         precio: 800,
-        categoria: 'Para cabellos secos',
+        categoria: 'Shampoo sólidos',
         imagen: 'https://res.cloudinary.com/dm3zt39cx/image/upload/v1666492990/Shampoo_solido_rosa_mosqueta_wkeyy5.jpg',
         id: 6
     },
     {
         nombre: 'Acondicionador Sólido Té Verde',
         precio: 800,
-        categoria: 'Para cabellos grasos',
+        categoria: 'Acondicionador Sólido',
         imagen: 'https://res.cloudinary.com/dm3zt39cx/image/upload/v1666492980/acondcicionado_solido_te_verde_lacjkl.jpg',
         id: 7
     },
     {
         nombre: 'Acondicionador sólido Rosa Mosqueta',
         precio: 800,
-        categoria: 'Para cabellos secos',
+        categoria: 'Acondicionador Sólido',
         imagen: 'https://res.cloudinary.com/dm3zt39cx/image/upload/v1666492981/acondicionador_solido_rosa_mosqueta_yjovxr.jpg',
         id: 8
     },
@@ -86,21 +86,21 @@ export const productos = [
     {
         nombre: 'PillowSplash',
         precio: 600,
-        categoria: 'PillowSplash',
+        categoria: 'aromaterapia',
         imagen: 'https://res.cloudinary.com/dm3zt39cx/image/upload/v1666492988/pillowsplash_fiweet.jpg',
         id: 13
     },
     {
         nombre: 'Acondicionador sólido Aceite de Almendras',
         precio: 800,
-        categoria: 'Para cabellos normales',
+        categoria: 'Acondicionador Sólido',
         imagen: 'https://res.cloudinary.com/dm3zt39cx/image/upload/v1666492982/acondicionado_solido_aceite_de_almendras_dsqjj9.jpg',
         id:14
     },
     {
         nombre: 'Shampoo sólido Aceite de Almendras',
         precio: 800,
-        categoria: 'Para cabellos normales',
+        categoria: 'Shampoo sólidos',
         imagen: 'https://res.cloudinary.com/dm3zt39cx/image/upload/v1666492992/shampoo_solido_aceite_de_almendras_dsopki.jpg',
         id: 15
     }
