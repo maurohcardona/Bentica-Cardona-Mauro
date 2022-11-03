@@ -4,6 +4,7 @@ export const productos = [
         precio: 300,
         categoria: 'Sanitizante',
         imagen: 'https://res.cloudinary.com/dm3zt39cx/image/upload/v1666492990/sanitizante_de_manos_ky5mej.jpg',
+        stock: 10,
         id: 1
     },
     {
@@ -11,13 +12,16 @@ export const productos = [
         precio: 500,
         categoria: 'Desodorante',
         imagen: 'https://res.cloudinary.com/dm3zt39cx/image/upload/v1666492983/Desodorante_en_crema_mhdog4.jpg',
+        stock: 10,
         id: 2
     },
     {
         nombre: 'Cabellos y barba-barra sólida de limpieza',
+        stock: 10,
         precio: 800,
         categoria: '2x1',
         imagen: 'https://res.cloudinary.com/dm3zt39cx/image/upload/v1666492983/Cabellos_y_barba_xxse1e.jpg',
+        stock: 10,
         id: 3,
     },
     {
@@ -25,6 +29,7 @@ export const productos = [
         precio: 450,
         categoria: 'Bálsamo labial',
         imagen: 'https://res.cloudinary.com/dm3zt39cx/image/upload/v1666492987/balsamo_labial_reparacion_bgrsnu.jpg',
+        stock: 10,
         id: 4
     },
     {
@@ -32,6 +37,7 @@ export const productos = [
         precio: 800,
         categoria: 'Shampoo sólidos',
         imagen: 'https://res.cloudinary.com/dm3zt39cx/image/upload/v1666492990/shampoo_solido_te_verde_iohy4b.jpg',
+        stock: 10,
         id: 5
     },
     {
@@ -39,6 +45,7 @@ export const productos = [
         precio: 800,
         categoria: 'Shampoo sólidos',
         imagen: 'https://res.cloudinary.com/dm3zt39cx/image/upload/v1666492990/Shampoo_solido_rosa_mosqueta_wkeyy5.jpg',
+        stock: 10,
         id: 6
     },
     {
@@ -46,6 +53,7 @@ export const productos = [
         precio: 800,
         categoria: 'Acondicionador Sólido',
         imagen: 'https://res.cloudinary.com/dm3zt39cx/image/upload/v1666492980/acondcicionado_solido_te_verde_lacjkl.jpg',
+        stock: 10,
         id: 7
     },
     {
@@ -53,6 +61,7 @@ export const productos = [
         precio: 800,
         categoria: 'Acondicionador Sólido',
         imagen: 'https://res.cloudinary.com/dm3zt39cx/image/upload/v1666492981/acondicionador_solido_rosa_mosqueta_yjovxr.jpg',
+        stock: 10,
         id: 8
     },
     {
@@ -60,6 +69,7 @@ export const productos = [
         precio: 300,
         categoria: 'Jaboneras',
         imagen: 'https://res.cloudinary.com/dm3zt39cx/image/upload/v1666492985/jabonera_x_unidad_vhwzbp.jpg',
+        stock: 10,
         id: 9
     },
     {
@@ -67,6 +77,7 @@ export const productos = [
         precio: 2500,
         categoria: 'Combos',
         imagen: 'https://res.cloudinary.com/dm3zt39cx/image/upload/v1666492987/combo_full_bentica_zug4lo.jpg',
+        stock: 10,
         id: 10
     },
     {
@@ -74,6 +85,7 @@ export const productos = [
         precio: 1700,
         categoria: 'Combos',
         imagen: 'https://res.cloudinary.com/dm3zt39cx/image/upload/v1666492999/combo_triple_jsaqia.jpg',
+        stock: 10,
         id: 11
     },
     {
@@ -81,6 +93,7 @@ export const productos = [
         precio: 1500,
         categoria: 'Combos',
         imagen: 'https://res.cloudinary.com/dm3zt39cx/image/upload/v1666492985/combo_duo_dpmykz.jpg',
+        stock: 10,
         id: 12
     },
     {
@@ -88,6 +101,7 @@ export const productos = [
         precio: 600,
         categoria: 'aromaterapia',
         imagen: 'https://res.cloudinary.com/dm3zt39cx/image/upload/v1666492988/pillowsplash_fiweet.jpg',
+        stock: 10,
         id: 13
     },
     {
@@ -95,6 +109,7 @@ export const productos = [
         precio: 800,
         categoria: 'Acondicionador Sólido',
         imagen: 'https://res.cloudinary.com/dm3zt39cx/image/upload/v1666492982/acondicionado_solido_aceite_de_almendras_dsqjj9.jpg',
+        stock: 10,
         id:14
     },
     {
@@ -102,6 +117,7 @@ export const productos = [
         precio: 800,
         categoria: 'Shampoo sólidos',
         imagen: 'https://res.cloudinary.com/dm3zt39cx/image/upload/v1666492992/shampoo_solido_aceite_de_almendras_dsopki.jpg',
+        stock: 10,
         id: 15
     }
 ]

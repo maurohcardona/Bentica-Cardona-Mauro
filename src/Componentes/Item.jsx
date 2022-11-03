@@ -9,9 +9,10 @@ function Item ({ producto }) {
             <p className="item-p">{producto.nombre}</p>
             <p className="item-p"><b>${producto.precio}</b></p>
             <p className="item-p c">{producto.categoria}</p>
-            <Link className="btn-detalle" to={`/detail/${producto.id}`}>
-                    Comprar
+            <div className="btn-detalle"><Link className="btn-comprar" to={`/detail/${producto.id}`}>
+                   <b >Comprar</b>
                 </Link>
+            </div>
        </div>
     )
 }

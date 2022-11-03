@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Contador from './Contador'
 import '../Estilos/ItemDetail.css'
 
 function ItemDetail({ item }) {
+
+    const [show, setShow] = useState(true);
+
+    const onAdd = () => {
+        setShow(false);
+        console.log(show)
+    };
 
     return (
         <div className="detail">
@@ -15,8 +22,8 @@ function ItemDetail({ item }) {
                     tempora dolor earum laboriosam hic distinctio. Nemo odit
                     laboriosam quasi! Temporibus fugit omnis deleniti?
                 </p>
-                <h3>${item.precio}.-</h3>
-                <Contador  />
+                <h3>${item.precio}.</h3>
+                <Contador stock={item.stock} onAdd={onAdd}  />
             </article>
         </div>
     );

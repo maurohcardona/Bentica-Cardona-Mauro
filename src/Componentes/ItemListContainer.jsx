@@ -3,6 +3,7 @@ import { productos } from '../Mock/productos'
 import ItemList from './ItemList';
 import logo from '../Imagenes/Frente-bentica.png'
 import { useParams } from 'react-router-dom';
+import '../Estilos/Cards.css'
 
 
 function ItemListContainer () {
@@ -35,7 +36,7 @@ function ItemListContainer () {
     
     return (
         <div>
-            <img src={logo} alt="Imagen de Bentica"/>
+            <img className='img-itemlistcontainer' src={logo} alt="Imagen de Bentica"/>
             <ItemList items={items} />
        </div>
     )

@@ -1,8 +1,8 @@
 import {useState} from "react";
 import '../Estilos/Contador.css'
 
-function Contador ({stock}) {
-    const [cantidad, setcantidad] = useState (0);
+function Contador ({ stock, onAdd}) {
+    const [cantidad, setcantidad] = useState (1);
 
     const agregar = () => {
         if (cantidad < stock) {
@@ -11,31 +11,27 @@ function Contador ({stock}) {
     };
 
     const sacar = () => {
-        if (cantidad > 0) {
+        if (cantidad > 1) {
             setcantidad(cantidad - 1)
         }
     }
     
-    const AgregarAlCarrito = () => {
-        if (cantidad === 0) {
-            alert ('No seleccionaste ningun producto')
-        }
-        else if (cantidad === 1) {
-            alert('Agregaste el producto al carrito')
-        }
-        else {
-            alert('Agregaste los productos al carrito')
-        }
-    }
+    const agregarAlCarrito = () => {
+        onAdd(cantidad);
+    };
     
     return (
         <div className="contenedor-contador">
             <div className="contenedor-botones">
-                <button onClick={sacar} disabled={cantidad === 0}>-</button>
+                <button onClick={sacar} disabled={cantidad === 1}>-</button>
                 <span>{cantidad}</span>
                 <button onClick={agregar} disabled={cantidad === stock}>+</button>
             </div>
-            <button onClick={AgregarAlCarrito}>Agregar al carrito</button>
+            <div>
+                <button className="add" onClick={agregarAlCarrito}>
+                    Agregar al carrito
+                </button>
+            </div>
         </div>
     )
 }

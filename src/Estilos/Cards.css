@@ -10,7 +10,7 @@
     margin-left: 40px;
     padding: 0px;
     max-width: 200px;
-    min-height: 300px;
+    min-height: 350px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -25,4 +25,22 @@
 }
 .c {
     font-size: 0.7em;
+}
+
+.img-itemlistcontainer {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 50px;
+    
+}
+
+.btn-detalle {
+    text-align: center;
+    padding: 5px;
+    background-color: black;
+}
+
+.btn-comprar {
+    text-decoration: none;
+    color: whitesmoke;
 }
