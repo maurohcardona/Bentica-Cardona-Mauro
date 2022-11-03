@@ -4,11 +4,11 @@ import '../Estilos/ItemDetail.css'
 
 function ItemDetail({ item }) {
 
-    const [show, setShow] = useState(true);
+    const [cantidad, setcantidad] = useState(0);
 
-    const onAdd = () => {
-        setShow(false);
-        console.log(show)
+    const onAdd = (cant) => {
+        setcantidad(cantidad);
+        console.log(cant)
     };
 
     return (

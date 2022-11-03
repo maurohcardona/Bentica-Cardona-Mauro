@@ -22,5 +22,6 @@
 }
 
 .contenedor-header {
-    padding: 10px;
+    margin: 10px 30px 0px 30px;
+    border-bottom: 1px solid rgb(181, 177, 177);
 }
