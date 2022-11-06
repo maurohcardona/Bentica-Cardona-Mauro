@@ -1,12 +1,13 @@
 import React from "react";
 import {RiShoppingCartLine} from 'react-icons/ri'
+import '../Estilos/Header.css'
 
 
 
 function CartWidget () {
     return (
-        <div className="icono-carrito"> 
-            <RiShoppingCartLine  size= {35}/>
+        <div className="carrito" > 
+            <RiShoppingCartLine color="black"  size= {35}/>
         </div>
     )
 }

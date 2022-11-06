@@ -10,13 +10,15 @@ function Header () {
     return (
         <div className="contenedor-header">
             <div className="logo-input">
-                <Link to='/Home'><img className="logo-bentica" src={logo} alt="Logo de Bentica" /></Link>
+                <Link to='/'><img className="logo-bentica" src={logo} alt="Logo de Bentica" /></Link>
                 <div className="div-input">
                     <Input 
                         estilo= 'input-header'
                         placeholder= '¿Que estas buscando?' />
                 </div>
-                <CartWidget />
+                <div className="icono-carrito">
+                    <Link to='/carrito'><CartWidget /></Link> 
+                </div>    
             </div>
         <NavBar />
         </div>

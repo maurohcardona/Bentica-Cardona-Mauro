@@ -17,7 +17,6 @@ export const productos = [
     },
     {
         nombre: 'Cabellos y barba-barra sólida de limpieza',
-        stock: 10,
         precio: 800,
         categoria: '2x1',
         imagen: 'https://res.cloudinary.com/dm3zt39cx/image/upload/v1666492983/Cabellos_y_barba_xxse1e.jpg',
