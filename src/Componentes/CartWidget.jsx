@@ -8,11 +8,13 @@ import { CartContext } from '../Context/CartContext'
 function CartWidget () {
     
     const carrito = useContext(CartContext)
-    
+    const cantidadcarrito = carrito.cart.map((e) => {return e.cantidad}) 
+    const cantidadTotal = cantidadcarrito.reduce((a,b) => {return a+b},0)
+
     return (
         <div className="carrito" > 
             <RiShoppingCartLine color="black"  size= {35}/>
-            <span>{carrito.cart.length}</span>
+            <span >{cantidadTotal}</span>
         </div>
     )
 }

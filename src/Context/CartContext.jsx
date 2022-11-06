@@ -8,7 +8,7 @@ export const CartContext = createContext();
 
     const addToCart = (item, cantidad) => {
         if(isInCart(item.id)) {
-            console.log('ya esta en el carrito')
+            
         }
         else {
             setcart([...cart, {...item, cantidad}]);

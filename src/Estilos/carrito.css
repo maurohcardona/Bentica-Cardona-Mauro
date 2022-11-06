@@ -1,0 +1,58 @@
+.contenedor-entero {
+    margin-left: 15px;
+}
+
+.map-carrito {
+    display: flex;
+    justify-content: space-between;
+    width: 600px;
+    align-content: space-between;
+    margin-left: 10px;
+}
+
+.indice-carrito{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 600px;
+    padding-left: 10px;
+    border-bottom: 1px solid gainsboro;
+}
+
+.indice-carrito h2 {
+   height: 15px;
+}
+
+.producto-carrito {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 25px;
+}
+
+.producto-carrito p {
+    margin-left: 10px;
+}
+
+h1 {
+    border-bottom: 1px solid gainsboro;
+    width: 600px;
+    margin-left: 10px;
+}
+
+.contenedor-carrito {
+    border-bottom: 1px solid gainsboro;
+    width: 650px;
+    padding-bottom: 20px;
+}
+
+.precio-total {
+    display: flex;
+    justify-content: space-between;
+    width: 600px;
+}
+
+.vaciar-carrito {
+    display: flex;
+    width: 600px;
+    justify-content: flex-end;
+}
