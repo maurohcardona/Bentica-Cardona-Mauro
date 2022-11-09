@@ -23,8 +23,13 @@ export const CartContext = createContext();
         setcart([]);
     };
 
+    const deleteOne = (id) => {
+        const prodFiltrados = cart.filter((prod) => prod.id !== id);
+        setcart(prodFiltrados);
+    };
+
     return (
-        <CartContext.Provider value ={{ cart, addToCart, deleteAll }}>
+        <CartContext.Provider value ={{ cart, addToCart, deleteAll, deleteOne }}>
             {children}
         </CartContext.Provider>
     );

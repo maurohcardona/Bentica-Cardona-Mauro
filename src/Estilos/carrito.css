@@ -63,3 +63,8 @@ h1 {
     color: #ff8000;
     width: 600px;
 }
+
+.delete-one{
+    padding-left: 15px;
+    cursor: pointer;
+}

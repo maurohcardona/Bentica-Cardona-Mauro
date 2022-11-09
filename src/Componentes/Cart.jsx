@@ -2,7 +2,7 @@ import React from "react";
 import { useContext } from "react";
 import { CartContext } from '../Context/CartContext'
 import '../Estilos/carrito.css'
-import { CiTrash } from 'react-icons/ci'
+import { IoMdTrash } from 'react-icons/io'
 
 
 function Cart() {
@@ -29,7 +29,9 @@ function Cart() {
                                     <p>
                                         X {prod.cantidad}
                                     </p>
-                                    <CiTrash />
+                                    <div className="delete-one">
+                                        <IoMdTrash  size={25} color="black" onClick={() => deleteOne(prod.id)} /> 
+                                    </div>
                                 </div>
                                 <div className="producto-carrito">
                                     $ {prod.cantidad * prod.precio}
