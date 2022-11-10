@@ -28,8 +28,12 @@ export const CartContext = createContext();
         setcart(prodFiltrados);
     };
 
+    const cantidadTotal = cart.reduce((a,b) => {return a + b.cantidad},0)
+
+    const precioTotal = cart.reduce((a,b) => {return a + b.precio*b.cantidad},0)
+
     return (
-        <CartContext.Provider value ={{ cart, addToCart, deleteAll, deleteOne }}>
+        <CartContext.Provider value ={{ cart, addToCart, deleteAll, deleteOne, cantidadTotal, precioTotal }}>
             {children}
         </CartContext.Provider>
     );

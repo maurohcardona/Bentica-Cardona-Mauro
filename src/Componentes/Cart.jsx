@@ -7,10 +7,9 @@ import { IoMdTrash } from 'react-icons/io'
 
 function Cart() {
 
-    const { cart, deleteAll, deleteOne } = useContext(CartContext)
+    const { cart, deleteAll, deleteOne, precioTotal } = useContext(CartContext)
     
-    const filtroPrecio = cart.map((e) => {return e.precio*e.cantidad}) 
-    const precioTotal = filtroPrecio.reduce((a,b) => {return a+b},0)
+    
     
     console.log(cart.length)
     return(
