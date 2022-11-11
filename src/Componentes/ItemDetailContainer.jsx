@@ -3,6 +3,7 @@ import ItemDetail from './ItemDetail';
 import { productos } from '../Mock/productos'
 import { useParams } from 'react-router-dom';
 import SyncLoader from 'react-spinners/SyncLoader';
+import '../Estilos/Cards.css'
 
 
 
@@ -17,7 +18,7 @@ function ItemDetailContainer() {
             const product = productos.find((prod) => prod.id === +idProd);
             setTimeout(() => {
                 res(product);
-            }, 3000);
+            }, 2000);
         });
     };  
 
@@ -36,8 +37,8 @@ function ItemDetailContainer() {
     
     if (loading) {
         return (
-            <div className="detail-container">
-                <h1><SyncLoader /></h1>
+            <div className="loader">
+                <h1><SyncLoader color='#4c83d8'/></h1>
             </div>
         );
     }

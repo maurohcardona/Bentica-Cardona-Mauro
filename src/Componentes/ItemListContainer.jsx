@@ -4,11 +4,14 @@ import ItemList from './ItemList';
 import logo from '../Imagenes/Frente-bentica.png'
 import { useParams } from 'react-router-dom';
 import '../Estilos/Cards.css'
+import SyncLoader from 'react-spinners/SyncLoader';
+import { db } from '../Services/firebaseConfig'
+import { collection,getDocs,query, } from 'firebase/firestore';
 
 
 function ItemListContainer () {
     const [items, setItems] = useState([]);
-
+    const [loading, setLoading] = useState(true);
     const { categoryName } = useParams ()
 
     useEffect(() => {
@@ -20,18 +23,43 @@ function ItemListContainer () {
                 const ref = categoryName ? prodFiltrados : productos
                 setTimeout(() => {
                     res(ref);
-                }, 1000);
+                }, 2000);
                 
             });
         };
-        getProducts(categoryName)
-        .then((res) => {
-            setItems(res);
-        })
-        .catch((error) => {
+
+        const collectionProd = collection(db, 'productos')
+
+        getDocs(collectionProd)
+            .then((res) => {
+                setItems(res);
+            })
+            .catch((error) => {
             console.log(error);
-        });
+            })
+            .finally(() => {
+                setLoading(false);
+            });
+
+        //getProducts(categoryName)
+        //.then((res) => {
+        //    setItems(res);
+        //})
+        //.catch((error) => {
+        //    console.log(error);
+        //})
+        //.finally(() => {
+        //    setLoading(false);
+        //});
     }, [categoryName]); 
+
+    if (loading) {
+        return (
+            <div className="loader">
+                <h1><SyncLoader color='#4c83d8'/></h1>
+            </div>
+        );
+    }
     
     
     return (

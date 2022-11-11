@@ -44,3 +44,17 @@
     text-decoration: none;
     color: whitesmoke;
 }
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 200px;
+}
+
+.loader h1  {
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

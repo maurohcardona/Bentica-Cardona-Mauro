@@ -8,7 +8,7 @@ export const CartContext = createContext();
 
     const addToCart = (item, cantidad) => {
         if(isInCart(item.id)) {
-            
+            sumarCantidad(item, cantidad);
         }
         else {
             setcart([...cart, {...item, cantidad}]);
@@ -22,6 +22,24 @@ export const CartContext = createContext();
     const deleteAll = () => {
         setcart([]);
     };
+
+    const sumarCantidad = (itemPorAgregar, cantidad) => {
+        const cartActualizado = cart.map((prodDelCarrito) => {
+            if (itemPorAgregar.id === prodDelCarrito.id) {
+                const productoActualizado = {
+                    ...prodDelCarrito,
+                    cantidad: cantidad,
+                    
+                };
+                return productoActualizado;
+            } else {
+                return prodDelCarrito;
+            }
+        });
+        setcart(cartActualizado);
+    };
+
+
 
     const deleteOne = (id) => {
         const prodFiltrados = cart.filter((prod) => prod.id !== id);
