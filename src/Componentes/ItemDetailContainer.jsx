@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import ItemDetail from './ItemDetail';
-import { productos } from '../Mock/productos'
+//import { productos } from '../Mock/productos'
 import { useParams } from 'react-router-dom';
 import SyncLoader from 'react-spinners/SyncLoader';
 import '../Estilos/Cards.css'
+import { collectionProd } from '../Services/firebaseConfig';
+import { getDoc, doc } from 'firebase/firestore';
 
 
 
@@ -13,19 +15,25 @@ function ItemDetailContainer() {
     const [loading, setLoading] = useState(true);
     const { idProd } = useParams();
 
-     const getProduct = (idProd) => {
-        return new Promise((res, rej) => {
-            const product = productos.find((prod) => prod.id === +idProd);
-            setTimeout(() => {
-                res(product);
-            }, 2000);
-        });
-    };  
+     //const getProduct = (idProd) => {
+       // return new Promise((res, rej) => {
+         //   const product = productos.find((prod) => prod.id === +idProd);
+           // setTimeout(() => {
+             //   res(product);
+            //}, 2000);
+        //});
+    //};  
 
     useEffect(() => {
-        getProduct(idProd)
+
+        const ref = doc(collectionProd, idProd)
+
+        getDoc(ref)
             .then((res) => {
-                setItem(res);
+                setItem( {
+                    id: res.id,
+                    ...res.data(),
+                } );
             })
             .catch((error) => {
                 console.log(error);

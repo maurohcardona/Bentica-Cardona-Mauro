@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { productos } from '../Mock/productos'
+//import { productos } from '../Mock/productos'
 import ItemList from './ItemList';
 import logo from '../Imagenes/Frente-bentica.png'
 import { useParams } from 'react-router-dom';
 import '../Estilos/Cards.css'
 import SyncLoader from 'react-spinners/SyncLoader';
-import { db } from '../Services/firebaseConfig'
-import { collection,getDocs,query, } from 'firebase/firestore';
+import { collectionProd } from '../Services/firebaseConfig'
+import { getDocs, query, where } from 'firebase/firestore';
 
 
 function ItemListContainer () {
@@ -15,24 +15,32 @@ function ItemListContainer () {
     const { categoryName } = useParams ()
 
     useEffect(() => {
-        const getProducts = (categoryName) => {
-            return new Promise((res, rej) => {
-                const prodFiltrados = productos.filter (
-                    (prod) => prod.categoria === categoryName
-                );
-                const ref = categoryName ? prodFiltrados : productos
-                setTimeout(() => {
-                    res(ref);
-                }, 2000);
-                
-            });
-        };
+        //const getProducts = (categoryName) => {
+            //return new Promise((res, rej) => {
+                //const prodFiltrados = productos.filter (
+                    //(prod) => prod.categoria === categoryName
+                //);
+                //setTimeout(() => {
+                    //res(ref);
+                    // }, 2000);
+                    
+                    //  });   
+                    // };
+                    
+                    //const collectionProd = collection(db, 'productos')
+                    //const categoria = query(collectionProd, where('categoria', '==', categoryName ))
+                    
+                    const ref = categoryName ? query(collectionProd, where('categoria', '==', categoryName )) : collectionProd;
 
-        const collectionProd = collection(db, 'productos')
-
-        getDocs(collectionProd)
-            .then((res) => {
-                setItems(res);
+        getDocs(ref)
+            .then((res) => {    
+                const products = res.docs.map((prod) => {
+                    return {
+                        id: prod.id,
+                        ...prod.data(),
+                    };
+                });
+                setItems(products);
             })
             .catch((error) => {
             console.log(error);
