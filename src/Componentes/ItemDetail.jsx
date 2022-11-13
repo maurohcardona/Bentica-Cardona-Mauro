@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+//import React, { useState } from 'react';
 import Contador from './Contador'
 import '../Estilos/ItemDetail.css'
 import { useContext } from 'react';
@@ -6,14 +6,16 @@ import { CartContext } from '../Context/CartContext'
 
 function ItemDetail({ item }) {
 
-    const [cantidad, setcantidad] = useState(0);
+    
 
-    const { addToCart } = useContext(CartContext)
+    const { addToCart, cantidadDeProducto } = useContext(CartContext)
 
     const onAdd = (cant) => {
-        setcantidad(cantidad);
+        
         addToCart(item, cant)
     };
+
+    const cantidad = cantidadDeProducto(item.id);
 
     return (
         <div className="detail">
@@ -27,7 +29,7 @@ function ItemDetail({ item }) {
                     laboriosam quasi! Temporibus fugit omnis deleniti?
                 </p>
                 <h3>${item.precio}.</h3>
-                <Contador stock={item.stock} onAdd={onAdd}  />
+                <Contador stock={item.stock} onAdd={onAdd} initial= {cantidad}  />
             </article>
         </div>
     );

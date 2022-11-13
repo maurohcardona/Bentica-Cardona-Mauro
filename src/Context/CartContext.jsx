@@ -39,6 +39,11 @@ export const CartContext = createContext();
         setcart(cartActualizado);
     };
 
+    const cantidadDeProducto = (id) => {
+        const product = cart.find((prod) => prod.id === id);
+        return product?.cantidad;
+    };
+
 
 
     const deleteOne = (id) => {
@@ -51,7 +56,7 @@ export const CartContext = createContext();
     const precioTotal = cart.reduce((a,b) => {return a + b.precio*b.cantidad},0)
 
     return (
-        <CartContext.Provider value ={{ cart, addToCart, deleteAll, deleteOne, cantidadTotal, precioTotal }}>
+        <CartContext.Provider value ={{ cart, addToCart, deleteAll, deleteOne, cantidadTotal, precioTotal, cantidadDeProducto }}>
             {children}
         </CartContext.Provider>
     );

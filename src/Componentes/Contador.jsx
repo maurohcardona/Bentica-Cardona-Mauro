@@ -1,11 +1,12 @@
 import {useState} from "react";
 import '../Estilos/Contador.css'
 
-function Contador ({ stock, onAdd}) {
-    const [cantidad, setcantidad] = useState (1);
+function Contador ({ stock, onAdd, initial = 1}) {
+    
+    const [cantidad, setcantidad] = useState (initial);
 
     const agregar = () => {
-        if (cantidad < stock) {
+        if (cantidad < stock ) {
             setcantidad(cantidad + 1)
         }
     };

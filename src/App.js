@@ -6,6 +6,7 @@ import ItemDetailContainer from './Componentes/ItemDetailContainer';
 import Inicio from './Componentes/Inicio';
 import CartProvider from './Context/CartContext';
 import Cart from './Componentes/Cart';
+import Footer from './Componentes/Footer';
 
 
 
@@ -21,6 +22,7 @@ function App() {
         <Route path='/detail/:idProd' element={<ItemDetailContainer />} />
         <Route path='/carrito' element={<Cart />} />
         </Routes>
+        <Footer />
       </CartProvider>
     </BrowserRouter>
   );
