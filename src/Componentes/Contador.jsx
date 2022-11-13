@@ -1,7 +1,10 @@
 import {useState} from "react";
 import '../Estilos/Contador.css'
+import Swal from 'sweetalert2'
 
-function Contador ({ stock, onAdd, initial = 1}) {
+
+
+function Contador ({ stock, onAdd, initial = 1, producto}) {
     
     const [cantidad, setcantidad] = useState (initial);
 
@@ -19,6 +22,7 @@ function Contador ({ stock, onAdd, initial = 1}) {
     
     const agregarAlCarrito = () => {
         onAdd(cantidad);
+        Swal.fire(`Agregaste ${producto} al carrito de compras`) 
     };
     
     return (
@@ -36,5 +40,6 @@ function Contador ({ stock, onAdd, initial = 1}) {
         </div>
     )
 }
+
 
 export default Contador

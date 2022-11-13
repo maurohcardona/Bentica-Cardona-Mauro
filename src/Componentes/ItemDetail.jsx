@@ -29,7 +29,7 @@ function ItemDetail({ item }) {
                     laboriosam quasi! Temporibus fugit omnis deleniti?
                 </p>
                 <h3>${item.precio}.</h3>
-                <Contador stock={item.stock} onAdd={onAdd} initial= {cantidad}  />
+                <Contador stock={item.stock} onAdd={onAdd} initial= {cantidad} producto= {item.nombre}  />
             </article>
         </div>
     );
