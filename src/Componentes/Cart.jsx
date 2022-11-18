@@ -3,12 +3,14 @@ import { useContext } from "react";
 import { CartContext } from '../Context/CartContext'
 import '../Estilos/carrito.css'
 import { IoMdTrash } from 'react-icons/io'
+import { Link } from "react-router-dom";
+
 
 
 function Cart() {
 
-    const { cart, deleteAll, deleteOne, precioTotal } = useContext(CartContext)
-    
+        
+    const { cart, precioTotal, deleteAll, deleteOne } = useContext(CartContext)
     
     
     console.log(cart.length)
@@ -19,7 +21,8 @@ function Cart() {
                     <h1>Carrito de compras</h1><div className="indice-carrito">
                     <h2>Productos</h2>
                     <h2>Subtotal</h2>
-                    </div><div className="contenedor-carrito">
+                    </div>
+                    <div className="contenedor-carrito">
                         {cart.map((prod) => (
                             <div className="map-carrito">
                                 <div className="producto-carrito">
@@ -38,11 +41,13 @@ function Cart() {
 
                             </div>
                         ))}
-                    </div><div className="precio-total">
+                    </div>
+                    <div className="precio-total">
                         <h2>Total</h2>
                         <h4>$ {precioTotal}</h4>
                     </div><div className="vaciar-carrito">
                         <button onClick={deleteAll}>Vaciar el carrito</button>
+                        <Link to='/checkout'>Iniciar compra</Link>
                     </div>
                 </>
                 ) 

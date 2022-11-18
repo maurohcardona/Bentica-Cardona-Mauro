@@ -1,0 +1,64 @@
+.contenedor-checkout {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+input {
+    padding: 15px;
+    min-width: 300px;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid black;
+}
+
+.map-carrito-co {
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+    align-content: space-between;
+    margin-left: 10px;
+}
+
+.producto-carrito-co {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    align-items: center;
+    border: solid 1px gainsboro;
+}
+
+.precio-total-co {
+    
+    display: flex;
+    justify-content: space-between;
+    width: 378px;
+    margin-left: 10px;
+    padding: 0px 10px;
+    border: solid 1px gainsboro;
+}
+
+.contenedor-entero-co {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(241, 239, 237);
+    margin-top: 15px;
+    min-height: auto;
+    padding: 10px;
+    
+}
+
+.producto-carrito-co p {
+    margin-left: 10px;
+    min-width: 50px;
+}
