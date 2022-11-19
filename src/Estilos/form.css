@@ -30,10 +30,11 @@ input {
 
 .producto-carrito-co {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 10px;
     align-items: center;
     border: solid 1px gainsboro;
+    width: 400px;
 }
 
 .precio-total-co {
@@ -61,4 +62,9 @@ input {
 .producto-carrito-co p {
     margin-left: 10px;
     min-width: 50px;
+}
+
+.contenedor-orden{
+    display: flex;
+    justify-content: space-around;
 }
