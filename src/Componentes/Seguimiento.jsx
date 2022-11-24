@@ -12,6 +12,7 @@ function Seguimiento () {
     const [detalle, setDetalle] = useState('');
     
     
+    
  
     const ingresarNumero = (e) =>{
         e.preventDefault();
@@ -19,16 +20,18 @@ function Seguimiento () {
         const seg = doc(Ordenes, orden)
 
         getDoc(seg)
-        .then((res) => {
-            console.log(res.data())
-            setDetalle(res.data())
+            .then((res) => {
+                setDetalle(res.data())
+                })
+            .catch((e)=>{
+                console.log(e)
+                }
+            )
             
             
-            
-        }
-        )
-    }
-        if(detalle) {
+            }
+
+            if(detalle) {
             return(
                 <div className= 'contenedor-seguimiento'>
                 <h2>Seguimiento de su compra</h2>
@@ -55,10 +58,9 @@ function Seguimiento () {
                     <div>
                         <h3>Productos comprados</h3>
                             {detalle.items.map((prod) =>(
-                                <div>
+                                <div key={prod.nombre}>
                                     <p>{prod.nombre} x {prod.cantidad}</p>
-                                    
-                                    
+                                       
                                 </div>
                             ))}
                     </div>
