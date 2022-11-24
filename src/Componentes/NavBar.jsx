@@ -23,7 +23,7 @@ function NavBar () {
                             <Link to='/categoria/Sanitizante'>Sanitizante</Link>
                         </ul>
                     </NavLink>
-                <NavLink className='itemsNavbar' to='/contactos'>Contacto</NavLink>
+                <NavLink className='itemsNavbar' to='/seguimiento'>Seguimiento</NavLink>
             </ul>    
         </nav>
     )

@@ -8,6 +8,7 @@ import CartProvider from './Context/CartContext';
 import Cart from './Componentes/Cart';
 import Footer from './Componentes/Footer';
 import Form from './Componentes/Form';
+import Seguimiento from './Componentes/Seguimiento';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path='/detail/:idProd' element={<ItemDetailContainer />} />
         <Route path='/carrito' element={<Cart />} />
         <Route path="/checkout" element={<Form />} />
+        <Route path="/seguimiento" element={<Seguimiento />} />
         </Routes>
         <Footer />
       </CartProvider>

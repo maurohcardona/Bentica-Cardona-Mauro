@@ -9,13 +9,15 @@ import CarritoFinal from "./CarritoFinal";
 
 function Form() {
 
-    const { cart, precioTotal } = useContext(CartContext)
+    const { cart, precioTotal, deleteAll } = useContext(CartContext)
 
     const [nombre, setNombre] = useState('')
     const [apellido, setApellido] = useState('')
     const [telefono, setTelefono] = useState('')
     const [email, setEmail] = useState('')
     const [direccion, setDireccion] = useState('')
+    const [cartviejo, setcartviejo] = useState([])
+    const [precioViejo, setPrecioViejo] = useState('')
 
     const cambionombre = (e) => setNombre(e.target.value);
     const cambioapellido = (e) => setApellido(e.target.value);
@@ -27,7 +29,8 @@ function Form() {
 
     const enviarDatos = (e) => {
         e.preventDefault();
-        //console.log({ name, lastName });
+        setcartviejo(cart)
+        setPrecioViejo(precioTotal)
         const objOrden = {
             Comprador: {
                 Nombre: nombre,
@@ -37,8 +40,6 @@ function Form() {
                 Direccion: direccion,
             },
             items: cart,
-            //cart -> [id, title,stock,price,img,etc]
-            //cartReducido -> [id,title,price]
             total: precioTotal,
             date: serverTimestamp(),
         };
@@ -48,7 +49,7 @@ function Form() {
         addDoc(orderCollection, objOrden)
             .then((res) => {
                 setOrderId(res.id);
-                
+                deleteAll();
             })
             .catch((error) => {
                 console.log('Hubo un error', error);
@@ -58,10 +59,11 @@ function Form() {
         if (orderId) {
             return (
                 <div>
-                    <h1>Gracias por tu compra tu número de seguimiento es {orderId}</h1>
+                    <h1>Gracias por tu compra tu número de seguimiento es: <span className="orderid">{orderId}</span></h1>
+                    <h3>Guarde este numero para seguir los detalles de su compra</h3>
                     <div>
                         <div className="contenedor-orden">
-                            <CarritoFinal cart={cart} precioTotal={precioTotal} />
+                            <CarritoFinal cart={cartviejo} precioTotal={precioViejo} />
                             <div> 
                                 <h2>Datos del comprador</h2>
                                 <p>Nombre: {nombre}</p>

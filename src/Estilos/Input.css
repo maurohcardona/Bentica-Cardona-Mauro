@@ -4,3 +4,21 @@
     height: 20px;
     
 }
+
+.detalle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.boton-buscar {
+    color: white;
+    background-color: blue;
+    width: 80px;
+    padding: 10px;
+    margin-left: 15px;
+}
+
+.contenedor-seguimiento{
+    min-height: 500px;
+}
