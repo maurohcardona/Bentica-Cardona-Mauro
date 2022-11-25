@@ -15,14 +15,6 @@ function ItemDetailContainer() {
     const [loading, setLoading] = useState(true);
     const { idProd } = useParams();
 
-     //const getProduct = (idProd) => {
-       // return new Promise((res, rej) => {
-         //   const product = productos.find((prod) => prod.id === +idProd);
-           // setTimeout(() => {
-             //   res(product);
-            //}, 2000);
-        //});
-    //};  
 
     useEffect(() => {
 

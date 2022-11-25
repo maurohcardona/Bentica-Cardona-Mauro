@@ -22,7 +22,16 @@ function Contador ({ stock, onAdd, initial = 1, producto}) {
     
     const agregarAlCarrito = () => {
         onAdd(cantidad);
-        Swal.fire(`Agregaste ${producto} al carrito de compras`) 
+        Swal.fire({
+            position: 'center',
+            grow:'true',
+            icon: 'success',
+            color:'gray',
+            heightAuto:'false',
+            title: `Agregaste ${producto} al carrito de compras`,
+            showConfirmButton: false,
+            timer: 2000
+          })
     };
     
     return (
@@ -33,7 +42,7 @@ function Contador ({ stock, onAdd, initial = 1, producto}) {
                 <button onClick={agregar} disabled={cantidad === stock}>+</button>
             </div>
             <div>
-                <button className="add" onClick={agregarAlCarrito}>
+                <button className="button" onClick={agregarAlCarrito}>
                     Agregar al carrito
                 </button>
             </div>

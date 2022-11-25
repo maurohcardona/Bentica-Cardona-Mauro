@@ -43,7 +43,7 @@ function Seguimiento () {
                             name="numeroOrden"
                             onChange={numeroOrden}
                             value={orden} />
-                            <button className="boton-buscar">Buscar</button>
+                            <button className="button">Buscar</button>
                         </form>
                 </div>
                 <div className="detalle">
@@ -84,7 +84,7 @@ function Seguimiento () {
                     name="numeroOrden"
                     onChange={numeroOrden}
                     value={orden} />
-                <button className="boton-buscar">Buscar</button>
+                <button className="button">Buscar</button>
             </form>
             </div>
         )

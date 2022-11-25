@@ -46,8 +46,8 @@ function Cart() {
                         <h2>Total</h2>
                         <h4>$ {precioTotal}</h4>
                     </div><div className="vaciar-carrito">
-                        <button onClick={deleteAll}>Vaciar el carrito</button>
-                        <Link to='/checkout'>Iniciar compra</Link>
+                        <button className="button" onClick={deleteAll}>Vaciar el carrito</button>
+                        <Link className="button" to='/checkout'>Iniciar compra</Link>
                     </div>
                 </>
                 ) 

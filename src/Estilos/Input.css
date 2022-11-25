@@ -11,12 +11,21 @@
     align-items: center;
 }
 
-.boton-buscar {
+.button {
+    background-color: #1119a4; /* Green */
+    border: none;
     color: white;
-    background-color: blue;
-    width: 80px;
-    padding: 10px;
-    margin-left: 15px;
+    padding: 5px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.button:hover {
+    background-color: #16105a;
 }
 
 .contenedor-seguimiento{

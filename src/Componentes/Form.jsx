@@ -6,6 +6,8 @@ import { CartContext } from '../Context/CartContext'
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { db } from '../Services/firebaseConfig';
 import CarritoFinal from "./CarritoFinal";
+import Swal from 'sweetalert2'
+
 
 function Form() {
 
@@ -15,6 +17,7 @@ function Form() {
     const [apellido, setApellido] = useState('')
     const [telefono, setTelefono] = useState('')
     const [email, setEmail] = useState('')
+    const [email2, setEmail2] = useState('')
     const [direccion, setDireccion] = useState('')
     const [cartviejo, setcartviejo] = useState([])
     const [precioViejo, setPrecioViejo] = useState('')
@@ -23,9 +26,20 @@ function Form() {
     const cambioapellido = (e) => setApellido(e.target.value);
     const cambiotelefono = (e) => setTelefono(e.target.value);
     const cambioemail = (e) => setEmail(e.target.value);
+    const confmail = (e) => setEmail2(e.target.value);
     const cambiodireccion = (e) => setDireccion(e.target.value);
     const [orderId, setOrderId] = useState('');
 
+    const validarEmail = (e) =>{
+        Swal.fire({
+            position: 'center',
+            icon: 'warning',
+            title: 'Los emails no coinciden',
+            showConfirmButton: false,
+            timer: 2200
+          })
+        e.preventDefault()}
+        
 
     const enviarDatos = (e) => {
         e.preventDefault();
@@ -83,7 +97,7 @@ function Form() {
             <div className="contenedor-entero-co">
         <CarritoFinal cart={cart} precioTotal={precioTotal} />
              </div>
-            <form className="formulario" action="" onSubmit={enviarDatos}>
+            <form className="formulario" action="" onSubmit={(email!==email2)?validarEmail:enviarDatos}>
                 <h3>Complete el formulario para finalizar la compra</h3>
                 <input
                     type="text"
@@ -91,6 +105,7 @@ function Form() {
                     name="nombre"
                     onChange={cambionombre}
                     value={nombre}
+                    required
                 />
                 <input
                     type="text"
@@ -98,6 +113,7 @@ function Form() {
                     name="apellido"
                     onChange={cambioapellido}
                     value={apellido}
+                    required
                 />
                 <input
                     type="number"
@@ -105,6 +121,7 @@ function Form() {
                     name="telefono"
                     onChange={cambiotelefono}
                     value={telefono}
+                    required
                 />
                 <input
                     type="email"
@@ -112,6 +129,15 @@ function Form() {
                     name="Email"
                     onChange={cambioemail}
                     value={email}
+                    required
+                />
+                <input 
+                    type="email"
+                    placeholder=" Vuelva a ingresar el Email"
+                    name="Email2"
+                    onChange={confmail}
+                    value={email2}
+                    required
                 />
                 <input
                     type="text"
@@ -119,8 +145,9 @@ function Form() {
                     name="direccion"
                     onChange={cambiodireccion}
                     value={direccion}
+                    required
                 />
-                <button className="boton-enviar">Enviar</button>
+                <button   className="button">Finaizar compra</button>
             </form>
         </div>
     );

@@ -4,7 +4,7 @@ import NavBar from '../Componentes/NavBar';
 import '../Estilos/Header.css'
 import CartWidget from "./CartWidget";
 import { Link } from "react-router-dom";
-    
+
 
 function Header () {
     return (
