@@ -18,7 +18,7 @@ function NavBar () {
                             <Link to='/categoria/Bálsamo labial'>Bálsamo labial</Link>
                             <Link to='/categoria/Combos'>Combos</Link>
                             <Link to='/categoria/Jaboneras'>Jaboneras</Link>
-                            <Link to='/categoria/desodorante'>Desodorante</Link>
+                            <Link to='/categoria/Desodorante'>Desodorante</Link>
                             <Link to='/categoria/2x1'>2 en 1 : Shampoo/barba</Link>
                             <Link to='/categoria/Sanitizante'>Sanitizante</Link>
                         </ul>

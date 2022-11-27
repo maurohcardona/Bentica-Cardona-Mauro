@@ -12,6 +12,7 @@ function Item ({ producto }) {
             <div className="btn-detalle"><Link className="btn-comprar" to={`/detail/${producto.id}`}>
                    <b >Comprar</b>
                 </Link>
+            
             </div>
        </div>
     )
