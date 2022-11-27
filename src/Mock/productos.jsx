@@ -121,3 +121,6 @@ export const productos = [
     }
 ]
 
+
+
+//Estearchivo no se usa, solo no lo borro por si pasa algo con Firebase

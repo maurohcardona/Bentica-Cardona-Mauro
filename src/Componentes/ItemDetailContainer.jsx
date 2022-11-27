@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import ItemDetail from './ItemDetail';
-//import { productos } from '../Mock/productos'
 import { useParams } from 'react-router-dom';
 import SyncLoader from 'react-spinners/SyncLoader';
 import '../Estilos/Cards.css'

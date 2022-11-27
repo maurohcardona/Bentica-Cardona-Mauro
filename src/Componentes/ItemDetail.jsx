@@ -1,8 +1,8 @@
-//import React, { useState } from 'react';
 import Contador from './Contador'
 import '../Estilos/ItemDetail.css'
 import { useContext } from 'react';
 import { CartContext } from '../Context/CartContext'
+import { Link } from "react-router-dom";
 
 function ItemDetail({ item }) {
 
@@ -28,8 +28,11 @@ function ItemDetail({ item }) {
                     tempora dolor earum laboriosam hic distinctio. Nemo odit
                     laboriosam quasi! Temporibus fugit omnis deleniti?
                 </p>
-                <h3>${item.precio}.</h3>
-                <Contador stock={item.stock} onAdd={onAdd} initial= {cantidad} producto= {item.nombre}  />
+                <h3>Precio: ${item.precio}.</h3>
+                <div className='contadorboton'>
+                    <Contador stock={item.stock} onAdd={onAdd} initial= {cantidad} producto= {item.nombre}  />
+                    <Link className='button' to='/carrito'>Ir al carrito</Link>
+                </div>
             </article>
         </div>
     );

@@ -12,13 +12,15 @@
 }
 
 .button {
-    background-color: #1119a4; /* Green */
+    background-color: #1119a4; 
     border: none;
     color: white;
-    padding: 5px 12px;
+    padding: 5px 15px;
     text-align: center;
+    vertical-align: middle;
     text-decoration: none;
-    display: inline-block;
+    display: flex;
+    align-items: center;
     font-size: 15px;
     cursor: pointer;
     margin-bottom: 5px;
