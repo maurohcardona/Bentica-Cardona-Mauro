@@ -1,0 +1,29 @@
+.contacto-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background: rgba(206,206,206,0.8);
+    color: #fff;
+    padding: 2rem;
+    
+}
+
+.form-contacto{
+    display: flex;
+    flex-direction: column;
+    width: 100vh;
+    background:transparent;
+    color: #fff;
+    
+}
+
+.input-contacto {
+    min-height: 2rem;
+    color: #fff;
+    background: transparent;
+    border: 2px solid #fff;
+    padding: 3px;
+    margin: 5px;
+    
+}
+.input-contacto::placeholder { color: #fff; }

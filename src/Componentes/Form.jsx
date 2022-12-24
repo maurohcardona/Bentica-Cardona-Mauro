@@ -9,6 +9,7 @@ import CarritoFinal from "./CarritoFinal";
 import Swal from 'sweetalert2'
 
 
+
 function Form() {
 
     const { cart, precioTotal, deleteAll } = useContext(CartContext)
@@ -99,7 +100,7 @@ function Form() {
              </div>
             <form className="formulario" action="" onSubmit={(email!==email2)?validarEmail:enviarDatos}>
                 <h3>Complete el formulario para finalizar la compra</h3>
-                <input
+                <input className='input-form'
                     type="text"
                     placeholder="Nombre"
                     name="nombre"
@@ -107,7 +108,7 @@ function Form() {
                     value={nombre}
                     required
                 />
-                <input
+                <input className='input-form'
                     type="text"
                     placeholder="Apellido"
                     name="apellido"
@@ -115,7 +116,7 @@ function Form() {
                     value={apellido}
                     required
                 />
-                <input
+                <input className='input-form'
                     type="number"
                     placeholder="Telefono"
                     name="telefono"
@@ -123,7 +124,7 @@ function Form() {
                     value={telefono}
                     required
                 />
-                <input
+                <input className='input-form'
                     type="email"
                     placeholder="Email"
                     name="Email"
@@ -131,7 +132,7 @@ function Form() {
                     value={email}
                     required
                 />
-                <input 
+                <input  className='input-form'
                     type="email"
                     placeholder=" Vuelva a ingresar el Email"
                     name="Email2"
@@ -139,7 +140,7 @@ function Form() {
                     value={email2}
                     required
                 />
-                <input
+                <input className='input-form'
                     type="text"
                     placeholder="Direccion"
                     name="direccion"

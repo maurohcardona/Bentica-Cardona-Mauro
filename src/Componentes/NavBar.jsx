@@ -24,6 +24,7 @@ function NavBar () {
                         </ul>
                     </NavLink>
                 <NavLink className='itemsNavbar' to='/seguimiento'>Seguimiento</NavLink>
+                <NavLink className='itemsNavbar' to='/contacto'>Contacto</NavLink>
             </ul>    
         </nav>
     )

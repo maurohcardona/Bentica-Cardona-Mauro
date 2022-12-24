@@ -9,6 +9,7 @@ import Cart from './Componentes/Cart';
 import Footer from './Componentes/Footer';
 import Form from './Componentes/Form';
 import Seguimiento from './Componentes/Seguimiento';
+import Contacto from './Componentes/Contacto';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path='/carrito' element={<Cart />} />
         <Route path="/checkout" element={<Form />} />
         <Route path="/seguimiento" element={<Seguimiento />} />
+        <Route path="/contacto" element={<Contacto />} />
         </Routes>
         <Footer />
       </CartProvider>
