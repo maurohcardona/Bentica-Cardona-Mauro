@@ -4,19 +4,22 @@ import '../Estilos/NavBar.css';
 import { UserContext } from "../Context/UserContext";
 import { useContext } from "react";
 import { useEffect } from "react";
-import { updateCurrentUser } from "firebase/auth";
+
 
 
 
 
 function NavBar () {
 
-    const { currentState } = useContext(UserContext)
-
-    useEffect(()=>{
+    const { currentUser } = useContext(UserContext)
+    
+    useEffect(()=>{ 
+         
         
-        console.log('holasss')
-    },[]);
+    },);
+
+    
+
 
 
     return (
@@ -36,7 +39,7 @@ function NavBar () {
                             <Link to='/categoria/Sanitizante'>Sanitizante</Link>
                         </ul>
                     </NavLink>
-                {!currentState? <NavLink className='itemsNavbar' to='/seguimiento'>Seguimiento</NavLink>:<p>holas</p>}
+                    {currentUser? <NavLink className='itemsNavbar' to='/seguimiento'>Seguimiento</NavLink>:<p></p>}
                 <NavLink className='itemsNavbar' to='/contacto'>Contacto</NavLink>
             </ul>    
         </nav>

@@ -1,6 +1,6 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState } from 'react';
 import { createContext } from "react";
-import { GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
 import { auth } from '../Services/firebaseConfig'
 
 
@@ -10,10 +10,6 @@ export const UserContext = createContext();
     const [currentUser, setCurrentUser] = useState('');
     const [currenState, setCurrentState] = useState(false);
     
-//     // useEffect(()=>{
-//     //     setCurrentState(false)
-//     //     onAuthStateChanged(auth, handleUserStateChanged);
-//     // },[currenState]);
 
 
     function handleUserStateChanged (user) {
@@ -30,8 +26,7 @@ export const UserContext = createContext();
         
         async function signInWithGoogle(googleProvider){
             try {
-                const res = await signInWithPopup(auth, googleProvider);
-                console.log(res)
+                 await signInWithPopup(auth, googleProvider);
                 setCurrentState(true)
             } catch (error) {
                 console.log(error)
@@ -41,9 +36,9 @@ export const UserContext = createContext();
 
     async function desloguearse () {
         try {
-            const res = await signOut(auth)
-            console.log(res)
+             await signOut(auth)
             setCurrentState(false)
+            setCurrentUser('')
         } catch (error) {
             
         }
