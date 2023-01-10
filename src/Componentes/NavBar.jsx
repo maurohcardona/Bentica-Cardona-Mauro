@@ -1,11 +1,24 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import '../Estilos/NavBar.css';
+import { UserContext } from "../Context/UserContext";
+import { useContext } from "react";
+import { useEffect } from "react";
+import { updateCurrentUser } from "firebase/auth";
 
 
 
 
 function NavBar () {
+
+    const { currentState } = useContext(UserContext)
+
+    useEffect(()=>{
+        
+        console.log('holasss')
+    },[]);
+
+
     return (
         <nav className= "contenedor-navbar">
             <ul className= "contenedor-ul">
@@ -23,7 +36,7 @@ function NavBar () {
                             <Link to='/categoria/Sanitizante'>Sanitizante</Link>
                         </ul>
                     </NavLink>
-                <NavLink className='itemsNavbar' to='/seguimiento'>Seguimiento</NavLink>
+                {!currentState? <NavLink className='itemsNavbar' to='/seguimiento'>Seguimiento</NavLink>:<p>holas</p>}
                 <NavLink className='itemsNavbar' to='/contacto'>Contacto</NavLink>
             </ul>    
         </nav>

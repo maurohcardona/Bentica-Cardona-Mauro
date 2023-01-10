@@ -2,17 +2,19 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from 'firebase/firestore'
 import { collection } from 'firebase/firestore';
+import { getAuth, signOut } from 'firebase/auth'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAPii7RyZo9ZyRHZ7lh0H96hLTKNG0m6ro",
-  authDomain: "bentica-mauro-cardona.firebaseapp.com",
-  projectId: "bentica-mauro-cardona",
-  storageBucket: "bentica-mauro-cardona.appspot.com",
-  messagingSenderId: "894150801959",
-  appId: "1:894150801959:web:aef57d319b33fd7671ac02"
+  apiKey: process.env.REACT_APP_APIKEY,
+  authDomain: process.env.REACT_APP_AUTHDOMAIN,
+  projectId: process.env.REACT_APP_PROJECTID,
+  storageBucket: process.env.REACT_APP_STORAGEBUCKET,
+  messagingSenderId: process.env.REACT_APP_MESAGINGSENDERID,
+  appId: process.env.REACT_APP_APPID,
 };
 
 
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 export const collectionProd = collection(db, 'productos')
+export const auth  = getAuth(app);

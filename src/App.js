@@ -10,12 +10,14 @@ import Footer from './Componentes/Footer';
 import Form from './Componentes/Form';
 import Seguimiento from './Componentes/Seguimiento';
 import Contacto from './Componentes/Contacto';
+import UserProvider from './Context/UserContext';
 
 
 function App() {
   return (
    <BrowserRouter>
-      <CartProvider>
+      <UserProvider
+>      <CartProvider>
         <Header />
         <Routes>
         <Route path='/' element={<Inicio />} />
@@ -29,6 +31,7 @@ function App() {
         </Routes>
         <Footer />
       </CartProvider>
+      </UserProvider>
     </BrowserRouter>
   );
 }

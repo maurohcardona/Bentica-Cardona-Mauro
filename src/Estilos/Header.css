@@ -30,3 +30,13 @@
     border-bottom: 1px solid rgb(181, 177, 177);
 }
 
+.login{
+    background-color: gainsboro;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 15px;
+}
+.login p{
+    margin: 0px;
+    cursor: pointer;
+}
