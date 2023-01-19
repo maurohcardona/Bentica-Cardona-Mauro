@@ -15,7 +15,7 @@ import { UserContext } from "../Context/UserContext";
 
 function Header () {
 
-    const { handleUserStateChanged, currenState, currentUser, handleOnClick, desloguearse, setCurrentState } = useContext(UserContext)
+    const { handleUserStateChanged, currenState, currentUser, handleOnClick, desloguearse } = useContext(UserContext)
     
 
    
@@ -23,9 +23,9 @@ function Header () {
     useEffect(()=>{
         onAuthStateChanged(auth, handleUserStateChanged);
         
-    },[currenState]);
+    });
 
-    console.log(currenState)
+    
     
 
     return (
@@ -33,7 +33,7 @@ function Header () {
             <div className="login">
                     <p style={{color:'transparent'}}>1</p>
                     <p>benticacosmetica@gmail.com</p>
-                    {currenState? <p>{currentUser} {<p onClick={desloguearse}>logout</p>} </p>:<p onClick={handleOnClick}>login</p>}
+                    {currenState? <span>{currentUser} {<span onClick={desloguearse}>logout</span>} </span>:<p onClick={handleOnClick}>login</p>}
                 </div>
             <div className="contenedor-header">
                 

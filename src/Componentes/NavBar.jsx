@@ -3,24 +3,12 @@ import { Link, NavLink } from "react-router-dom";
 import '../Estilos/NavBar.css';
 import { UserContext } from "../Context/UserContext";
 import { useContext } from "react";
-import { useEffect } from "react";
-
-
-
 
 
 function NavBar () {
 
     const { currentUser } = useContext(UserContext)
     
-    useEffect(()=>{ 
-         
-        
-    },);
-
-    
-
-
 
     return (
         <nav className= "contenedor-navbar">
