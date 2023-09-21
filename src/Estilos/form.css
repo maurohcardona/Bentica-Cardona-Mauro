@@ -1,93 +1,94 @@
 .contenedor-checkout {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .formulario {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
 }
 .input-form {
-    padding: 15px;
-    min-width: 300px;
-    border-top: 0;
-    border-left: 0;
-    border-right: 0;
-    border-bottom: 1px solid black;
-    margin-bottom: 1px;
+  padding: 15px;
+  min-width: 300px;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 1px solid black;
+  margin-bottom: 1px;
 }
 
 .map-carrito-co {
-    display: flex;
-    justify-content: space-between;
-    width: 400px;
-    align-content: space-between;
-    margin-left: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 55px;
+  width: 80vw;
+  align-content: space-between;
+  margin: 15px 10px;
+  border: solid 1px gainsboro;
+  background-color: rgb(241, 239, 237);
 }
 
 .producto-carrito-co {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    align-items: center;
-    border: solid 1px gainsboro;
-    width: 400px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+
+  width: 400px;
 }
 
 .precio-total-co {
-    
-    display: flex;
-    justify-content: space-between;
-    width: 378px;
-    margin-left: 10px;
-    padding: 0px 10px;
-    border: solid 1px gainsboro;
+  display: flex;
+  justify-content: space-between;
+  width: 378px;
+  margin-left: 10px;
+  padding: 0px 10px;
+  border: solid 1px gainsboro;
 }
 
 .contenedor-entero-co {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(241, 239, 237);
-    margin-top: 15px;
-    min-height: auto;
-    padding: 10px;
-    
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 15px;
+  min-height: auto;
+  padding: 10px;
 }
 
 .producto-carrito-co p {
-    margin-left: 10px;
-    min-width: 50px;
+  margin-left: 10px;
+  min-width: 50px;
 }
 
-.contenedor-orden{
-    display: flex;
-    justify-content: space-around;
+.contenedor-orden {
+  display: flex;
+  justify-content: space-around;
 }
 
 .orderid {
-    color: blue;
-    text-decoration: underline;
+  color: blue;
+  text-decoration: underline;
 }
 
-  .button {
-    background-color: #1119a4; 
-    border: none;
-    color: white;
-    padding: 5px 12px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 15px;
-    cursor: pointer;
-    margin-bottom: 5px;
+.button {
+  background-color: #1119a4;
+  border: none;
+  color: white;
+  padding: 5px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  cursor: pointer;
+  margin-bottom: 5px;
 }
 
 .button:hover {
-    background-color: #16105a;
+  background-color: #16105a;
 }

@@ -1,4 +1,4 @@
-.contenedor-navbar {
+/* .contenedor-navbar {
     display: flex;
     justify-content: flex-start;
     width: 100%;
@@ -82,4 +82,51 @@ a ul a:hover {
     background-color: rgb(235, 231, 231);
     min-width: 200px ;
     
+} */
+
+.contenedor-navbar {
+  background-color: #333;
+}
+
+.contenedor-ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.itemsNavbar {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+}
+
+.itemsNavbar a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Estilos para la lista de subproductos */
+.subproductos {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #333;
+  z-index: 1;
+  padding: 0;
+}
+
+.subproductos .link {
+  display: block;
+  padding: 10px 20px;
+}
+
+.subproductos .link a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Mostrar la lista de subproductos al pasar el mouse sobre "Productos" */
+.itemsNavbar:hover .subproductos {
+  display: block;
 }

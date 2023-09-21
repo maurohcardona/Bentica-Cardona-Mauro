@@ -5,6 +5,7 @@ import '../Estilos/inicio.css'
 function Inicio () {
     return(
         <img className="imagen-inicio" src={imagen} alt="Imagen de Inicio" />
+        
     )
 }
 

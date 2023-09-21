@@ -1,29 +1,49 @@
 import React from "react";
-import '../Estilos/form.css'
+import "../Estilos/form.css";
+import { useContext, useEffect, useState } from "react";
+import { CartContext } from "../Context/CartContext";
 
-function CarritoFinal({ cart, precioTotal }) {
+function CarritoFinal() {
+  const { getCarts } = useContext(CartContext);
 
-    return(
-            <div className="contenedor-entero-co">
-                {cart.map((prod) => (
-                    <div className="map-carrito-co">
-                        <div className="producto-carrito-co">
-                            <img src={prod.imagen} width='70px' alt={prod.nombre} />
-                            <p>{prod.nombre}</p>
-                            <p>X {prod.cantidad}</p>
-                            <p>$ {prod.cantidad * prod.precio}</p>
-                        </div>
-                </div>
-                ))}
-                <div className="precio-total-co">
-                    <h2>Total</h2>
-                    <h4>$ {precioTotal}</h4>
-                </div>
+  const [cart, setCart] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const cartData = await getCarts();
+        setCart(cartData);
+        console.log("Cart data:", cartData);
+      } catch (error) {
+        console.error("Error al obtener el carrito:", error);
+      }
+    };
+
+    fetchData();
+  }, [getCarts]);
+  console.log(cart);
+  return (
+    <div className="contenedor-entero-co">
+      {cart.map((prod) => (
+        <div className="map-carrito-co" key={prod._id}>
+          <h3>{prod.createdAt}</h3>
+          {prod.Cart.map((item) => (
+            <div className="producto-carrito-co" key={item._id}>
+              <p>X {item.quantity}</p>
+              <img
+                src={item.cart.Thumbnail}
+                width="70px"
+                alt={item.cart.Title}
+              />
+              <p>{item.cart.Title}</p>
+              <p>${item.cart.Price * item.quantity}</p>
             </div>
-    );
+          ))}
+          <h3>Total: ${prod.total}</h3>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 export default CarritoFinal;
-
-
-    

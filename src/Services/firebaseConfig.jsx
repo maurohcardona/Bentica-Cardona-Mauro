@@ -1,8 +1,7 @@
-
 import { initializeApp } from "firebase/app";
-import { getFirestore } from 'firebase/firestore'
-import { collection } from 'firebase/firestore';
-import { getAuth, signOut } from 'firebase/auth'
+import { getFirestore } from "firebase/firestore";
+import { collection } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_APIKEY,
@@ -13,8 +12,7 @@ const firebaseConfig = {
   appId: process.env.REACT_APP_APPID,
 };
 
-
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
-export const collectionProd = collection(db, 'productos')
-export const auth  = getAuth(app);
+export const collectionProd = collection(db, "productos");
+export const auth = getAuth(app);

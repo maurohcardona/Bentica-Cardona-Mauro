@@ -1,52 +1,51 @@
 import React from "react";
-import logo from '../Imagenes/Logo-Bentica.png'
-import NavBar from '../Componentes/NavBar';
-import '../Estilos/Header.css'
+import logo from "../Imagenes/Logo-Bentica.png";
+import NavBar from "../Componentes/NavBar";
+import "../Estilos/Header.css";
 import CartWidget from "./CartWidget";
 import { Link } from "react-router-dom";
-import { auth } from '../Services/firebaseConfig'
-import { onAuthStateChanged } from "firebase/auth";
-import { useEffect, useContext } from "react";
+import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
 
+function Header() {
+  const { currentUser, desloguearse } = useContext(UserContext);
 
-
-
-
-function Header () {
-
-    const { handleUserStateChanged, currenState, currentUser, handleOnClick, desloguearse } = useContext(UserContext)
-    
-
-   
-
-    useEffect(()=>{
-        onAuthStateChanged(auth, handleUserStateChanged);
-        
-    });
-
-    
-    
-
-    return (
-        <>
-            <div className="login">
-                    <p style={{color:'transparent'}}>1</p>
-                    <p>benticacosmetica@gmail.com</p>
-                    {currenState? <span>{currentUser} {<span onClick={desloguearse}>logout</span>} </span>:<p onClick={handleOnClick}>login</p>}
-                </div>
-            <div className="contenedor-header">
-                
-                <div className="logo-input">
-                    <Link to='/'><img className="logo-bentica" src={logo} alt="Logo de Bentica" /></Link>
-                    <div className="icono-carrito">
-                        <Link to='/carrito'><CartWidget /></Link> 
-                    </div>    
-                </div>
-            <NavBar />
+  return (
+    <>
+      <div className="login">
+        <p style={{ color: "transparent" }}>1</p>
+        <p>benticacosmetica@gmail.com</p>
+        {currentUser ? (
+          <div>
+            <span>
+              {currentUser.profile.email}{" "}
+              {<span onClick={desloguearse}>logout</span>}
+            </span>
+            <div className="icono-carrito">
+              <Link to="/carrito">
+                <CartWidget />
+              </Link>
             </div>
-        </>
-    )   
+          </div>
+        ) : (
+          <span className="hola">
+            <Link to="/login">
+              <span>login</span>
+            </Link>
+            {<span>Register</span>}
+          </span>
+        )}
+      </div>
+      <div className="contenedor-header">
+        <div className="logo-input">
+          <Link to="/">
+            <img className="logo-bentica" src={logo} alt="Logo de Bentica" />
+          </Link>
+        </div>
+        <NavBar />
+      </div>
+    </>
+  );
 }
 
-export default Header
+export default Header;

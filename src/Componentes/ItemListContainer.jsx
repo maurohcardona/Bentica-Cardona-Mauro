@@ -1,55 +1,124 @@
-import React, { useEffect, useState } from 'react';
-import ItemList from './ItemList';
-import logo from '../Imagenes/Frente-bentica.png'
-import { useParams } from 'react-router-dom';
-import '../Estilos/Cards.css'
-import SyncLoader from 'react-spinners/SyncLoader';
-import { collectionProd } from '../Services/firebaseConfig'
-import { getDocs, query, where } from 'firebase/firestore';
+import React, { useEffect, useState } from "react";
+import ItemList from "./ItemList";
+import logo from "../Imagenes/Frente-bentica.png";
+import { useParams } from "react-router-dom";
+import SyncLoader from "react-spinners/SyncLoader";
 
+function ItemListContainer() {
+  const [items, setItems] = useState(null);
+  const apiUrl = "http://localhost:8080/products?limit=10&page=1";
 
-function ItemListContainer () {
-    const [items, setItems] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const { categoryName } = useParams ()
-
-    useEffect(() => {
-                    
-         const ref = categoryName ? query(collectionProd, where('categoria', '==', categoryName )) : collectionProd;
-
-        getDocs(ref)
-            .then((res) => {    
-                const products = res.docs.map((prod) => {
-                    return {
-                        id: prod.id,
-                        ...prod.data(),
-                    };
-                });
-                setItems(products);
-            })
-            .catch((error) => {
-            console.log(error);
-            })
-            .finally(() => {
-                setLoading(false);
-            });
-    }, [categoryName]); 
-
-    if (loading) {
-        return (
-            <div className="loader">
-                <h1><SyncLoader color='#4c83d8'/></h1>
-            </div>
+  async function fetchProducts() {
+    try {
+      const response = await fetch(apiUrl, { credentials: "include" });
+      if (!response.ok) {
+        throw new Error(
+          `La solicitud falló con código de estado: ${response.status}`
         );
+      }
+
+      const data = await response.json();
+
+      return data;
+    } catch (error) {
+      console.error("Error:", error);
+      throw error;
     }
-    
-    
+  }
+
+  async function nextPage() {
+    try {
+      try {
+        const response = await fetch(items.nextLink, {
+          credentials: "include",
+        });
+        if (!response.ok) {
+          throw new Error(
+            `La solicitud falló con código de estado: ${response.status}`
+          );
+        }
+
+        const data = await response.json();
+
+        setItems(data);
+      } catch (error) {
+        console.error("Error:", error);
+        throw error;
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      throw error;
+    }
+  }
+
+  async function prevPage() {
+    try {
+      try {
+        const response = await fetch(items.prevLink, {
+          credentials: "include",
+        });
+        if (!response.ok) {
+          throw new Error(
+            `La solicitud falló con código de estado: ${response.status}`
+          );
+        }
+
+        const data = await response.json();
+
+        setItems(data);
+      } catch (error) {
+        console.error("Error:", error);
+        throw error;
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      throw error;
+    }
+  }
+
+  const { categoryName } = useParams();
+
+  useEffect(() => {
+    const getProducts = async (categoryName) => {
+      try {
+        const products = await fetchProducts();
+        const prodFiltrados = products.products.filter(
+          (prod) => prod.categoria === categoryName
+        );
+        const ref = categoryName ? prodFiltrados : products;
+        setItems(ref);
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    };
+
+    getProducts(categoryName);
+  }, [categoryName]);
+
+  if (items === null) {
     return (
-        <div>
-            <img className='img-itemlistcontainer' src={logo} alt="Imagen de Bentica"/>
-            <ItemList items={items} />
-       </div>
-    )
+      <div className="loader">
+        <SyncLoader color="#4c83d8" />
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <img src={logo} alt="Imagen de Bentica" />
+      <ItemList items={items.products} />
+      {items.nextLink ? (
+        <button onClick={nextPage}>Pagina siguiente</button>
+      ) : (
+        <p></p>
+      )}
+      {items.prevLink ? (
+        <button onClick={prevPage}>Pagina anterior</button>
+      ) : (
+        <p></p>
+      )}
+    </div>
+  );
 }
 
 export default ItemListContainer;

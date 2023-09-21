@@ -1,42 +1,47 @@
 .logo-bentica {
-    height: 150px;
-    width: 170px;
+  height: 150px;
+  width: 170px;
 }
 .logo-input {
-    display: flex;
-    justify-content: space-between;
-    
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
 }
 
-.div-input  {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    
+.div-input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .icono-carrito {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .icono-carrito a {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
 
 .contenedor-header {
-    margin: 10px 30px 0px 30px;
-    border-bottom: 1px solid rgb(181, 177, 177);
+  border-bottom: 1px solid rgb(181, 177, 177);
 }
 
-.login{
-    background-color: gainsboro;
-    display: flex;
-    justify-content: space-between;
-    padding: 5px 15px;
+.login {
+  background-color: gainsboro;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 15px;
 }
-.login p{
-    margin: 0px;
-    cursor: pointer;
+.login p {
+  margin: 0px;
+  cursor: pointer;
+}
+
+.hola {
+  cursor: pointer;
+}
+.hola span {
+  margin-right: 5px;
 }

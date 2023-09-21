@@ -1,56 +1,65 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
 import { createContext } from "react";
-import { GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
-import { auth } from '../Services/firebaseConfig'
-
+import { loginRequest, logOut, profile } from "../Services/auth";
+import { useNavigate } from "react-router-dom";
 
 export const UserContext = createContext();
 
-    const UserProvider = ({ children }) => {
-    const [currentUser, setCurrentUser] = useState('');
-    const [currenState, setCurrentState] = useState(false);
-    
+const UserProvider = ({ children }) => {
+  const cookieExists = document.cookie.includes("cookieToken");
 
+  const [currentUser, setCurrentUser] = useState(null);
+  const [currenState, setCurrentState] = useState(false);
 
-    function handleUserStateChanged (user) {
-        if(user) {
-            setCurrentUser(user.displayName)
-        } else {
-            console.log('No hay nadie autenticado ...');
-        }
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const res = await profile();
+        setCurrentUser(res);
+        setCurrentState(true);
+      } catch (error) {
+        console.error("Error fetching profile:", error);
+      }
+    };
+
+    if (cookieExists) {
+      fetchProfile();
     }
+  }, [cookieExists]);
 
-    async function handleOnClick(){
-        const googleProvider = new GoogleAuthProvider()
-        await signInWithGoogle(googleProvider)
-        
-        async function signInWithGoogle(googleProvider){
-            try {
-                 await signInWithPopup(auth, googleProvider);
-                setCurrentState(true)
-            } catch (error) {
-                console.log(error)
-            }
-        }
-    }
+  const navigate = useNavigate();
 
-    async function desloguearse () {
-        try {
-             await signOut(auth)
-            setCurrentState(false)
-            setCurrentUser('')
-        } catch (error) {
-            
-        }
-    }
+  const onSubmit = async (data) => {
+    await loginRequest(data);
+    setCurrentState(true);
+    navigate("/productos");
+  };
 
-    return (
-         <UserContext.Provider value ={{handleOnClick, handleUserStateChanged, currenState, currentUser, desloguearse, setCurrentState}}>
-             {children}
-         </UserContext.Provider>
-     );
- }
+  async function desloguearse() {
+    try {
+      logOut();
+      document.cookie =
+        "cookieToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+      setCurrentState(false);
+      setCurrentUser("");
+      navigate("/login");
+    } catch (error) {}
+  }
+
+  return (
+    <UserContext.Provider
+      value={{
+        onSubmit,
+        currenState,
+        currentUser,
+        desloguearse,
+        setCurrentState,
+      }}
+    >
+      {children}
+    </UserContext.Provider>
+  );
+};
 
 export default UserProvider;
-
-    
