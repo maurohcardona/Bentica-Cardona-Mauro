@@ -30,7 +30,8 @@ const UserProvider = ({ children }) => {
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
-    await loginRequest(data);
+    const res = await loginRequest(data);
+    console.log(res);
     setCurrentState(true);
     navigate("/productos");
   };
