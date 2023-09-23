@@ -10,6 +10,7 @@ const UserProvider = ({ children }) => {
 
   const [currentUser, setCurrentUser] = useState(null);
   const [currenState, setCurrentState] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -30,10 +31,20 @@ const UserProvider = ({ children }) => {
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
-    const res = await loginRequest(data);
-    console.log(res);
-    setCurrentState(true);
-    navigate("/productos");
+    try {
+      const res = await loginRequest(data);
+      if (res.response) {
+        setError(res.response.data);
+        setTimeout(() => {
+          setError(null);
+        }, 5000);
+        return;
+      }
+      setCurrentState(true);
+      navigate("/productos");
+    } catch (error) {
+      console.log("Error de logueo");
+    }
   };
 
   async function desloguearse() {
@@ -56,6 +67,7 @@ const UserProvider = ({ children }) => {
         currentUser,
         desloguearse,
         setCurrentState,
+        error,
       }}
     >
       {children}

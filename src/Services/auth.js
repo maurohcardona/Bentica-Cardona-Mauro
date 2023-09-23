@@ -2,10 +2,23 @@ import axios from "axios";
 
 const API = "http://localhost:8080/login";
 
-export const loginRequest = (user) => {
-  return axios.post(API, user, {
-    withCredentials: true,
-  });
+// export const loginRequest = (user) => {
+//   return axios.post(API, user, {
+//     withCredentials: true,
+//   });
+// };
+export const loginRequest = async (user) => {
+  try {
+    const response = await axios.post(API, user, {
+      withCredentials: true,
+    });
+
+    // Manejar la respuesta exitosa aquí, si es necesario
+    return response.data;
+  } catch (error) {
+    // Manejar errores aquí
+    return error;
+  }
 };
 
 export const logOut = async () => {

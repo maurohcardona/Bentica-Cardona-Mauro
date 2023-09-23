@@ -4,7 +4,7 @@ import { UserContext } from "../Context/UserContext";
 import { useContext } from "react";
 
 function Login() {
-  const { onSubmit } = useContext(UserContext);
+  const { onSubmit, error } = useContext(UserContext);
 
   const {
     control,
@@ -43,7 +43,7 @@ function Login() {
           )}
         />
       </div>
-
+      {error && <h3>{error}</h3>}
       <button type="submit">Iniciar sesion</button>
     </form>
   );
