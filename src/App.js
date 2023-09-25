@@ -12,6 +12,7 @@ import Seguimiento from "./Componentes/Seguimiento";
 import Contacto from "./Componentes/Contacto";
 import UserProvider from "./Context/UserContext";
 import Login from "./Componentes/Login";
+import Perfil from "./Componentes/Perfil";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
             <Route path="/seguimiento" element={<Seguimiento />} />
             <Route path="/contacto" element={<Contacto />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/perfil" element={<Perfil />} />
           </Routes>
           <Footer />
         </CartProvider>

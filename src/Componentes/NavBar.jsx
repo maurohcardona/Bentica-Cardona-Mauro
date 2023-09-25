@@ -59,6 +59,9 @@ function NavBar() {
         <li className="itemsNavbar">
           <NavLink to="/contacto">Contacto</NavLink>
         </li>
+        <li className="itemsNavbar">
+          <NavLink to="/perfil">Perfil</NavLink>
+        </li>
       </ul>
     </nav>
   );
