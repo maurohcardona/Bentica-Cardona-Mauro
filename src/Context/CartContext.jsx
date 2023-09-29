@@ -1,7 +1,12 @@
 import { useState, useEffect, useContext } from "react";
 import { createContext } from "react";
 import { UserContext } from "./UserContext";
-import { finalCart, checkOut, fetchCarritos } from "../Services/cart";
+import {
+  finalCart,
+  checkOut,
+  fetchCarritos,
+  initCompra,
+} from "../Services/cart";
 
 export const CartContext = createContext();
 
@@ -10,6 +15,7 @@ const localCart = JSON.parse(localStorage.getItem("cart")) || [];
 const CartProvider = ({ children }) => {
   const [cart, setcart] = useState(localCart);
   const { currentUser } = useContext(UserContext);
+  const [error, setError] = useState([]);
 
   const addToCart = (item, cantidad) => {
     if (isInCart(item.id)) {
@@ -72,14 +78,25 @@ const CartProvider = ({ children }) => {
   };
 
   const finishCart = async () => {
-    const newCart = finalCart(cart, currentUser.profile.id, precioTotal);
+    const newCart = finalCart(cart, currentUser.profile._id, precioTotal);
     await checkOut(newCart);
   };
 
   const getCarts = async () => {
-    const carts = await fetchCarritos(currentUser.profile.id);
+    console.log(currentUser);
+    const carts = await fetchCarritos(currentUser.profile._id);
     //console.log(carts);
     return carts;
+  };
+
+  const mercadoPago = async () => {
+    console.log(cart);
+    try {
+      await checkOut(cart);
+      await initCompra(cart, currentUser.profile._id);
+    } catch (err) {
+      setError(err.response.data);
+    }
   };
 
   useEffect(() => {
@@ -99,6 +116,8 @@ const CartProvider = ({ children }) => {
         handleQuantityChange,
         finishCart,
         getCarts,
+        mercadoPago,
+        error,
       }}
     >
       {children}

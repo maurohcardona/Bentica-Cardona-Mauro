@@ -12,8 +12,10 @@ function Cart() {
     deleteOne,
     handleQuantityChange,
     finishCart,
+    mercadoPago,
+    error,
   } = useContext(CartContext);
-
+  console.log(cart);
   return (
     <div className="contenedor-entero">
       {cart.length ? (
@@ -62,8 +64,15 @@ function Cart() {
             <button className="button" onClick={deleteAll}>
               Vaciar el carrito
             </button>
-            <button onClick={finishCart}>Iniciar compra</button>
+            <button onClick={mercadoPago}>Iniciar compra</button>
           </div>
+          {error && (
+            <h3>
+              {error.map((el, index) => (
+                <p key={index}>{el}</p>
+              ))}
+            </h3>
+          )}
         </>
       ) : (
         <h3 className="carrito-vacio">El carrito de compras está vacío.</h3>
