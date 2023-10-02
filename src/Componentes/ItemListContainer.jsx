@@ -11,7 +11,7 @@ function ItemListContainer() {
   const apiUrl = `http://localhost:8080/products?limit=5&page=1&${queryCategory}`;
   const [api, setApi] = useState(apiUrl);
   const { data, error, loading } = useFetch(api);
-
+  console.log(data);
   useEffect(() => {
     setApi(apiUrl);
   }, [category, apiUrl]);

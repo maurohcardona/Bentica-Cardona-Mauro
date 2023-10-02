@@ -52,15 +52,20 @@ function NavBar() {
           </li>
         )}
         {currentUser && (
-          <li className="itemsNavbar">
-            <NavLink to="/checkout">Seguimiento</NavLink>
-          </li>
+          <>
+            <li className="itemsNavbar">
+              <NavLink to="/checkout">Seguimiento</NavLink>
+            </li>
+            <li className="itemsNavbar">
+              <NavLink to="/perfil">Perfil</NavLink>
+            </li>
+            <li className="itemsNavbar">
+              <NavLink to="/admin">Admin</NavLink>
+            </li>
+          </>
         )}
         <li className="itemsNavbar">
           <NavLink to="/contacto">Contacto</NavLink>
-        </li>
-        <li className="itemsNavbar">
-          <NavLink to="/perfil">Perfil</NavLink>
         </li>
       </ul>
     </nav>

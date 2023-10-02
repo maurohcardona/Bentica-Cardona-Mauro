@@ -12,7 +12,7 @@ export const loginRequest = async (user) => {
     const response = await axios.post(API, user, {
       withCredentials: true,
     });
-
+    console.log(response);
     // Manejar la respuesta exitosa aquí, si es necesario
     return response.data;
   } catch (error) {

@@ -13,6 +13,11 @@ import Contacto from "./Componentes/Contacto";
 import UserProvider from "./Context/UserContext";
 import Login from "./Componentes/Login";
 import Perfil from "./Componentes/Perfil";
+import Usuarios from "./Componentes/Usuarios";
+import Admin from "./Componentes/Admin";
+import ElimProd from "./Componentes/ElimProd";
+import CrearProd from "./Componentes/CrearProd";
+import Register from "./Componentes/Register";
 
 function App() {
   return (
@@ -35,6 +40,11 @@ function App() {
             <Route path="/contacto" element={<Contacto />} />
             <Route path="/login" element={<Login />} />
             <Route path="/perfil" element={<Perfil />} />
+            <Route path="/usuarios" element={<Usuarios />} />
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/elimprod" element={<ElimProd />} />
+            <Route path="/crearprod" element={<CrearProd />} />
+            <Route path="/register" element={<Register />} />
           </Routes>
           <Footer />
         </CartProvider>

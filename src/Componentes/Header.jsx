@@ -32,7 +32,9 @@ function Header() {
             <Link to="/login">
               <span>login</span>
             </Link>
-            {<span>Register</span>}
+            <Link to="/register">
+              <span>Registrese</span>
+            </Link>
           </span>
         )}
       </div>

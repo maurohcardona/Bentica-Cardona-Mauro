@@ -7,7 +7,6 @@ export const checkOut = (cart) => {
 };
 
 export const initCompra = async (cart, id) => {
-  console.log(cart);
   try {
     const response = await fetch(`http://localhost:8080/pagos/payment/${id}`, {
       method: "POST",
