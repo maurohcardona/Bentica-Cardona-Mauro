@@ -2,6 +2,7 @@ import React from "react";
 import { useForm, Controller } from "react-hook-form";
 import { UserContext } from "../Context/UserContext";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 function Login() {
   const { onSubmit, error } = useContext(UserContext);
@@ -13,39 +14,43 @@ function Login() {
   } = useForm();
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div>
-        <Controller
-          name="email"
-          control={control}
-          defaultValue="" // Valor inicial del campo
-          rules={{ required: true }} // Reglas de validación (opcional)
-          render={({ field }) => (
-            <input {...field} type="email" id="email" placeholder="Email" />
-          )}
-        />
-        {errors.email && <p>{errors.email.message}</p>}
-      </div>
+    <div>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div>
+          <Controller
+            name="email"
+            control={control}
+            defaultValue=""
+            rules={{ required: true }}
+            render={({ field }) => (
+              <input {...field} type="email" id="email" placeholder="Email" />
+            )}
+          />
+          {errors.email && <p>{errors.email.message}</p>}
+        </div>
 
-      <div>
-        <Controller
-          name="password"
-          control={control}
-          defaultValue=""
-          rules={{ required: true }}
-          render={({ field }) => (
-            <input
-              {...field}
-              type="password"
-              id="password"
-              placeholder="Password"
-            />
-          )}
-        />
-      </div>
-      {error && <h3>{error}</h3>}
-      <button type="submit">Iniciar sesion</button>
-    </form>
+        <div>
+          <Controller
+            name="password"
+            control={control}
+            defaultValue=""
+            rules={{ required: true }}
+            render={({ field }) => (
+              <input
+                {...field}
+                type="password"
+                id="password"
+                placeholder="Password"
+              />
+            )}
+          />
+        </div>
+        {error && <h3>{error}</h3>}
+        <button type="submit">Iniciar sesion</button>
+      </form>
+      <Link to="/recpass">Recuperar Password</Link>
+      <button>Iniciar con GitHub</button>
+    </div>
   );
 }
 
