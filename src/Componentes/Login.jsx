@@ -49,7 +49,9 @@ function Login() {
         <button type="submit">Iniciar sesion</button>
       </form>
       <Link to="/recpass">Recuperar Password</Link>
-      <button>Iniciar con GitHub</button>
+      <a href="http://localhost:8080/api/auth/github/github">
+        Loguearse con GitHub
+      </a>
     </div>
   );
 }
