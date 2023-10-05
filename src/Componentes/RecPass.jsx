@@ -1,6 +1,7 @@
 import { useForm, Controller } from "react-hook-form";
 import { passwordRecovery } from "../Services/auth";
 import Swal from "sweetalert2";
+import { useState } from "react";
 
 function RecPass() {
   const {
@@ -10,19 +11,32 @@ function RecPass() {
     formState: { errors },
   } = useForm();
 
+  const [error, setError] = useState(null);
+
   const onSubmit = async (user) => {
-    await passwordRecovery(user);
-    reset();
-    Swal.fire({
-      position: "center",
-      grow: "true",
-      icon: "success",
-      color: "gray",
-      heightAuto: "false",
-      title: `Email enviado`,
-      showConfirmButton: false,
-      timer: 2000,
-    });
+    try {
+      const response = await passwordRecovery(user);
+      console.log(response);
+      if (!response.message) {
+        reset();
+        Swal.fire({
+          position: "center",
+          grow: "true",
+          icon: "success",
+          color: "gray",
+          heightAuto: "false",
+          title: `Email enviado`,
+          showConfirmButton: false,
+          timer: 2000,
+        });
+      }
+      setError(response.message);
+      setTimeout(() => {
+        setError(null);
+      }, 3000);
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (
@@ -40,9 +54,9 @@ function RecPass() {
           />
           {errors.email && <p>{errors.email.message}</p>}
         </div>
-
         <button type="submit">Enviar email</button>
       </form>
+      {error && <h3>{error}</h3>}
     </div>
   );
 }
