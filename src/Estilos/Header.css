@@ -1,6 +1,6 @@
 .logo-bentica {
-  height: 150px;
-  width: 170px;
+  height: 80px;
+  width: 100px;
 }
 .logo-input {
   display: flex;
@@ -31,7 +31,7 @@
 .login {
   background-color: gainsboro;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   padding: 5px 15px;
 }
 .login p {

@@ -3,6 +3,7 @@ import { useForm, Controller } from "react-hook-form";
 import { UserContext } from "../Context/UserContext";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import "../Estilos/login.css";
 
 function Login() {
   const { onSubmit, error } = useContext(UserContext);
@@ -14,9 +15,11 @@ function Login() {
   } = useForm();
 
   return (
-    <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
+    <div className="login-container">
+      <div className="login-card">
+        <h2>Login</h2>
+        <h3>Enter your credentials</h3>
+        <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
           <Controller
             name="email"
             control={control}
@@ -27,9 +30,7 @@ function Login() {
             )}
           />
           {errors.email && <p>{errors.email.message}</p>}
-        </div>
 
-        <div>
           <Controller
             name="password"
             control={control}
@@ -44,14 +45,16 @@ function Login() {
               />
             )}
           />
-        </div>
-        {error && <h3>{error}</h3>}
-        <button type="submit">Iniciar sesion</button>
-      </form>
-      <Link to="/recpass">Recuperar Password</Link>
-      <a href="http://localhost:8080/api/auth/github/github">
-        Loguearse con GitHub
-      </a>
+
+          {error && <h3>{error}</h3>}
+          <button type="submit">Iniciar sesion</button>
+
+          <Link to="/recpass">Recuperar Password</Link>
+          <a href="http://localhost:8080/api/auth/github/github">
+            Loguearse con GitHub
+          </a>
+        </form>
+      </div>
     </div>
   );
 }

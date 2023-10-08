@@ -12,10 +12,11 @@ function Header() {
 
   return (
     <>
+      <NavBar />
       <div className="login">
         <p style={{ color: "transparent" }}>1</p>
         <p>benticacosmetica@gmail.com</p>
-        {currentUser ? (
+        {/* {currentUser ? (
           <div>
             <span>
               {currentUser.profile.email}{" "}
@@ -36,7 +37,7 @@ function Header() {
               <span>Registrese</span>
             </Link>
           </span>
-        )}
+        )} */}
       </div>
       <div className="contenedor-header">
         <div className="logo-input">
@@ -44,7 +45,6 @@ function Header() {
             <img className="logo-bentica" src={logo} alt="Logo de Bentica" />
           </Link>
         </div>
-        <NavBar />
       </div>
     </>
   );
